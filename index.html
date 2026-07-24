@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peter Siraa Land — Verified Land for Sale</title>
+<meta name="description" content="Browse verified land listings from Peter Siraa Land. Enquire directly via WhatsApp, email, or social media.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#12181B">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Siraa Land">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Design tokens ===== */
+:root {
+  --ink: #12181B;
+  --navy: #1B2A3D;
+  --navy-light: #26374E;
+  --brass: #B8863B;
+  --brass-light: #D9B876;
+  --parchment: #F5F3EE;
+  --parchment-dim: #EAE6DC;
+  --slate: #5C6570;
+  --white: #FFFFFF;
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --radius: 4px;
+  --shadow: 0 12px 32px rgba(18, 24, 27, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  color: var(--navy);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== Header ===== */
+.site-header {
+  background: var(--ink);
+  color: var(--parchment);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--parchment);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.logo span { color: var(--brass-light); }
+
+.site-header nav a {
+  color: var(--parchment-dim);
+  text-decoration: none;
+  font-size: 0.92rem;
+  margin-left: 28px;
+  transition: color 0.15s ease;
+}
+
+.site-header nav a:hover { color: var(--brass-light); }
+
+/* ===== Hero ===== */
+.hero {
+  background: var(--navy);
+  color: var(--parchment);
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0 88px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    repeating-linear-gradient(0deg, var(--parchment) 0 1px, transparent 1px 96px),
+    repeating-linear-gradient(90deg, var(--parchment) 0 1px, transparent 1px 96px);
+  pointer-events: none;
+}
+
+.hero .container { position: relative; }
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  color: var(--brass-light);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  max-width: 15ch;
+  line-height: 1.08;
+}
+
+.hero p {
+  max-width: 46ch;
+  color: var(--parchment-dim);
+  font-size: 1.08rem;
+  margin-top: 22px;
+}
+
+.hero-actions {
+  margin-top: 36px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-brass {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+.btn-outline {
+  border-color: rgba(245, 243, 238, 0.35);
+  color: var(--parchment);
+}
+
+.btn-navy {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn-block { width: 100%; justify-content: center; }
+
+/* ===== Listings section ===== */
+.listings {
+  padding: 72px 0 96px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section-heading h2 { font-size: 1.8rem; }
+
+.section-heading .count {
+  font-family: var(--font-mono);
+  color: var(--slate);
+  font-size: 0.85rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Signature "deed seal" corner mark */
+.card::after {
+  content: "TITLE";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  background: var(--brass-light);
+  padding: 4px 8px;
+  border-radius: 100px;
+}
+
+.card-image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--parchment-dim);
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-image .thumbs {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+.card-image .thumbs button {
+  flex: 1;
+  height: 4px;
+  border: none;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 0;
+}
+
+.card-image .thumbs button.active { background: var(--brass); }
+
+.card-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.card-location {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.card-body h3 { font-size: 1.2rem; }
+
+.card-price {
+  font-family: var(--font-mono);
+  color: var(--brass);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.card-desc {
+  color: var(--slate);
+  font-size: 0.92rem;
+  flex: 1;
+}
+
+.card-contacts {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--parchment-dim);
+  color: var(--navy);
+  background: var(--parchment);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.icon-btn:hover { background: var(--parchment-dim); }
+
+.icon-btn.whatsapp { color: #1f7a4d; border-color: #d6ead9; }
+.icon-btn.enquire { color: var(--navy); }
+.icon-btn.social { color: var(--brass); }
+
+.empty-state, .loading-state {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--slate);
+  background: var(--white);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 24, 27, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  max-width: 440px;
+  width: 100%;
+  padding: 32px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--slate);
+}
+
+.modal h3 { margin-bottom: 6px; }
+.modal .modal-sub {
+  color: var(--slate);
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.field input, .field textarea, .field select {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--parchment-dim);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  background: var(--parchment);
+}
+
+.field textarea { min-height: 90px; resize: vertical; }
+
+.form-note {
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin-top: 4px;
+}
+
+.form-success {
+  background: #ECF6EF;
+  color: #1f7a4d;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+}
+
+.form-error {
+  background: #FBEAEA;
+  color: #A3312A;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background: var(--ink);
+  color: var(--parchment-dim);
+  padding: 48px 0 28px;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 28px;
+}
+
+.footer-grid h3 { color: var(--white); font-size: 1.1rem; }
+
+.footer-contacts a {
+  display: block;
+  color: var(--parchment-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.footer-contacts a:hover { color: var(--brass-light); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(245, 243, 238, 0.12);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--slate);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-bottom a { color: var(--slate); text-decoration: none; }
+.footer-bottom a:hover { color: var(--brass-light); }
+
+@media (max-width: 640px) {
+  .site-header nav { display: none; }
+  .hero { padding: 64px 0 56px; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="logo">Peter Siraa <span>Land</span></a>
+    <nav>
+      <a href="#listings">Listings</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Verified Land Listings</div>
+    <h1>Land you can trust, titles you can verify.</h1>
+    <p>Every plot listed here comes with clear location details and a direct line to Peter — no agents, no middlemen. Browse what's available and enquire in one tap.</p>
+    <div class="hero-actions">
+      <a href="#listings" class="btn btn-brass">Browse Listings</a>
+      <a href="#contact" class="btn btn-outline">Contact Peter</a>
+      <button class="btn btn-outline" id="install-btn" style="display:none;">Install App</button>
+    </div>
+  </div>
+</section>
+
+<section class="listings" id="listings">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Available Land</h2>
+      <span class="count" id="listing-count"></span>
+    </div>
+    <div id="listings-grid" class="grid">
+      <div class="loading-state">Loading listings…</div>
+    </div>
+  </div>
+</section>
+
+<!-- Enquiry Modal -->
+<div class="modal-overlay" id="enquiry-overlay">
+  <div class="modal">
+    <button class="modal-close" id="enquiry-close" aria-label="Close">&times;</button>
+    <h3>Enquire about this land</h3>
+    <p class="modal-sub" id="enquiry-listing-name"></p>
+    <div id="enquiry-feedback"></div>
+    <form id="enquiry-form">
+      <div class="field">
+        <label for="enquiry-name">Your name</label>
+        <input type="text" id="enquiry-name" required>
+      </div>
+      <div class="field">
+        <label for="enquiry-email">Your email</label>
+        <input type="email" id="enquiry-email" required>
+      </div>
+      <div class="field">
+        <label for="enquiry-message">Message</label>
+        <textarea id="enquiry-message" required placeholder="I'm interested in this plot, is it still available?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-navy btn-block" id="enquiry-submit">Send Enquiry</button>
+      <p class="form-note">You'll get an email confirming we've received your message.</p>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Peter Siraa Land</h3>
+        <p style="max-width: 32ch; font-size: 0.9rem; margin-top: 10px;">Verified land listings, direct from the owner. Reach out on any channel below.</p>
+      </div>
+      <div class="footer-contacts">
+        <h3>Get in touch</h3>
+        <a id="footer-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <a id="footer-email" href="#">Email</a>
+        <a id="footer-facebook" href="#" target="_blank" rel="noopener">Facebook</a>
+        <a id="footer-instagram" href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Peter Siraa Land. All rights reserved.</span>
+      <a href="admin.html">Admin</a>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

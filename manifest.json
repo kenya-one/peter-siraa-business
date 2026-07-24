@@ -1,0 +1,31 @@
+{
+  "name": "Peter Siraa Land",
+  "short_name": "Siraa Land",
+  "description": "Verified land listings from Peter Siraa Land. Browse plots and enquire via WhatsApp, email, or social media.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#1B2A3D",
+  "theme_color": "#12181B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
